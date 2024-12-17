@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let courtesy = confirm('Do you want to play a game of rock, paper or scissors?')
+
+        if (courtesy) {
+            //play
+
+            while (courtesy) {
+                let PlayerChoice = prompt('Pick between Rock, paper, Scisscors');
+
+                if (PlayerChoice) {
+                    //play further
+                    let playerOne = PlayerChoice.trim().toLowerCase()
+
+                    if (playerOne === 'rock' || playerOne === 'paper' || playerOne === 'scissors') {
+                        alert(`You have selected ${playerOne}`)
+
+                        let computer = Math.floor(Math.random() * 3)
+                        // let computerChoice = computer ===1 ? 'rock' 
+                        //     : computer === 2 ? "paper" 
+                        //     : "scissors";
+                        let computerArray = ['rock', 'paper', 'scissors']
+                        const computerChoice = computerArray[computer]
+
+                        const result =
+                            playerOne === computerChoice
+                                ? "Tie game!"
+                                : playerOne === "rock" && computerChoice === "paper"
+                                    ? `PlayerOne: ${playerOne}\nComputer: ${computerChoice}\nComputer wins!`
+                                    : playerOne === "rock" && computerChoice === "scissors"
+                                        ? `PlayerOne: ${playerOne}\nComputer: ${computerChoice}\nPlayer One wins!`
+                                        : playerOne === "paper" && computerChoice === "rock"
+                                            ? `PlayerOne: ${playerOne}\nComputer: ${computerChoice}\nPlayer One wins!`
+                                            : playerOne === "paper" && computerChoice === "scissors"
+                                                ? `PlayerOne: ${playerOne}\nComputer: ${computerChoice}\nComputer wins!`
+                                                : playerOne === "scissors" && computerChoice === "rock"
+                                                    ? `PlayerOne: ${playerOne}\nComputer: ${computerChoice}\nComputer wins!`
+                                                    : playerOne === "scissors" && computerChoice === "paper"
+                                                        ? `PlayerOne: ${playerOne}\nComputer: ${computerChoice}\nPlayer One wins!`
+                                                        : "Invalid input!";
+                        alert(result)
+                        console.log(result);
+
+                        courtesy = confirm('Do you want to play again?')
+                        // playAgain ? location.reload() : alert('Okay thanks for playing.')
+                        if (!courtesy) alert('Okay thanks for playing.')
+                        continue;
+
+                    } else {
+                        alert('You have not selected either rock, paper, or scissors.')
+                        continue
+                    }
+                } else {
+                    alert('I guess you changed your mind.')
+                    break;
+                }
+            }
+        } else {
+            alert('Okay then, maybe another time');
+        }
+    </script>
+</body>
+
+</html>
